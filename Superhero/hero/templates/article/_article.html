@@ -1,0 +1,25 @@
+<div class="card col-lg">
+
+    <div class="card-header message">
+        Article
+    </div>
+    <div class="card-body">
+
+        <table class="table">
+            <tr>
+                <td>Title</td>
+                <td><a href="/article/{{ object.pk }}">{{ object.title }}</a></td>
+            </tr>
+            <tr>
+                <td>Heroes</td>
+                <td>{{ object.recipient }}</td>
+            </tr>
+            <tr>
+                <td>Text</td>
+                <td>{{ object.text }}</td>
+            </tr>
+        </table>
+
+    </div>
+    <a class="btn btn-success m-5" href="/article/{{ object.pk }}/edit" type="button">Edit Article</a>  
+</div>

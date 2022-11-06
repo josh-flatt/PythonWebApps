@@ -1,0 +1,54 @@
+{
+    "Superheroes": [
+        {
+            "id": 0,
+            "name": "Batman",
+            "alias": "Bruce Wayne",
+            "image": "Batman.jpg",
+            "strength1": "Money",
+            "strength2": "Physical strength",
+            "weakness1": "Unwillingness to kill",
+            "weakness2": "Talk of his parents"
+        },
+        {
+            "id": 1,
+            "name": "Captain America",
+            "alias": "Steve Rogers",
+            "image": "CaptainAmerica.jpg",
+            "strength1": "Expert leader",
+            "strength2": "At maximum human physical ability",
+            "weakness1": "Just a human",
+            "weakness2": "Culturally out-of-the-loop"
+        },
+        {
+            "id": 2,
+            "name": "Doctor Strange",
+            "alias": "Dr. Stephen Strange",
+            "image": "DoctorStrange.jpg",
+            "strength1": "Teleportation",
+            "strength2": "Divine Conduit",
+            "weakness1": "Doesn't ask for advice",
+            "weakness2": "Won't take advice"
+        },
+        {
+            "id": 3,
+            "name": "Spiderman",
+            "alias": "Peter Parker",
+            "image": "images/Spiderman.jpg",
+            "strength1": "Spider senses",
+            "strength2": "Athleticism",
+            "weakness1": "Water",
+            "weakness2": "Ethyl chloride"
+        },
+        {
+            "id": 4,
+            "name": "Thor",
+            "alias": "Thor Odinson",
+            "image": "Thor.jpg",
+            "strength1": "Superhuman strength",
+            "strength2": "Immunity to disease",
+            "weakness1": "Magical attacks",
+            "weakness2": "The Twilight Sword"
+        }
+    ]
+}

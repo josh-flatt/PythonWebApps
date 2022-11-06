@@ -2,7 +2,7 @@
 
 
 {% block title %}
-Hero Details
+    Superhero Details
 {% endblock title %}
 
 
@@ -12,32 +12,39 @@ Hero Details
 
     <div class="card col-lg">
 
-        <div class="card-header person">
-            HERO
-        </div>
+
         <div class="card-body">
 
 
             <table class="table">
                 <tr>
                     <td>Name</td>
-                    <td><a href="/{{ object.pk }}/">{{ object.name }}</a></td>
+                    <td>{{ object.name }}</td>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td><img src="/static/images/{{ object.image }}" alt="{{ object.image }}" width="150"></td>
                 </tr>
                 <tr>
                     <td>Identity</td>
                     <td>{{ object.identity }}</td>
                 </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>{{ object.description }}</td>
+                </tr>
+                <tr>
+                    <td>Strengths</td>
+                    <td>{{ object.strengths }}</td>
+                </tr>
+                <tr>
+                    <td>Weaknesses</td>
+                    <td>{{ object.weaknesses }}</td>
+                </tr>
             </table>
 
-            <p>
-                <img src="/media/{{ object.image.image }}" alt="{{ object.image.title }}">
-            </p>
-
-            <p>
-                <a href="/add" class="btn btn-success m-5">Add New Hero</a>
-            </p>
         </div>
-
+        <a class="btn btn-primary m-5" href="/hero/{{ object.pk }}/edit" type="button">Edit Hero</a>    
     </div>
 
 </div>

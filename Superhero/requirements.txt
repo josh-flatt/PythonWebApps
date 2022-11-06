@@ -1,5 +1,6 @@
 asgiref
 django
+mslib
 dj-database-url
 django-crispy-forms
 gunicorn
