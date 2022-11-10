@@ -22,5 +22,4 @@ urlpatterns = [
     # Admin views for users
     # path('admin/', admin.site.urls),
     # path('admin/', include('admin.site.urls')),   Don't do this!
-
 ]
