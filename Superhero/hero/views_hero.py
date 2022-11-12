@@ -1,7 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Superhero, Author
+from .models import Superhero, Investigator
 
 class HeroListView(ListView):
     template_name = 'hero/list.html'
@@ -19,8 +19,8 @@ class HeroCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        author_id = Author.objects.get_or_create(user=self.request.user)[0]
-        form.instance.author = author_id
+        investigator_id = Investigator.objects.get_or_create(user=self.request.user)[0]
+        form.instance.investigator = investigator_id
         return super().form_valid(form)
 
 

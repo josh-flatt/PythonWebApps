@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
-from .models import Superhero, Article, Author
+from .models import Superhero, Article, Investigator
 
 class ArticleListView(ListView):
     template_name = 'article/list.html'
@@ -28,8 +28,8 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     fields = '__all__'
 
     def form_valid(self, form):
-        author_id = Author.objects.get_or_create(user=self.request.user)[0]
-        form.instance.author = author_id
+        investigator_id = Investigator.objects.get_or_create(user=self.request.user)[0]
+        form.instance.investigator = investigator_id
         return super().form_valid(form)
 
 
@@ -39,7 +39,7 @@ class ArticleUpdateView(LoginRequiredMixin, UpdateView):
     fields = '__all__'
 
     def dispatch(self, request, *args, **kwargs):
-        article_user = self.get_object().author.user
+        article_user = self.get_object().investigator.user
         current_user = self.request.user
         if not self.request.user.is_superuser:
             if current_user != article_user:
@@ -53,7 +53,7 @@ class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('hero_list')
 
     def dispatch(self, request, *args, **kwargs):
-        article_user = self.get_object().author.user
+        article_user = self.get_object().investigator.user
         current_user = self.request.user
         if not self.request.user.is_superuser:
             if current_user != article_user:

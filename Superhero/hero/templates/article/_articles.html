@@ -11,7 +11,7 @@
                 <th>Written by</th>
             </tr>
 
-            {% for article in articles_authored %}
+            {% for article in articles_investigated %}
             <tr>
                 <td><a href="/article/{{ article.pk }}">{{ article.title }}</a></td>
                 <td>{{ article.text }}</td>
@@ -21,6 +21,6 @@
 
         </table>
 
-        <a class="btn btn-success m-5" href="/article/add">Add Article</a>
+        <a class="btn btn-primary m-5" href="/article/add">Add Article</a>
     </div>
 </div>

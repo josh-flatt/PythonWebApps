@@ -5,10 +5,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
-from .models import Author
+from .models import Investigator
 
-def get_author(user):
-    return Author.objects.get_or_create(user=user)[0]
+def get_investigator(user):
+    return Investigator.objects.get_or_create(user=user)[0]
 
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'registration/edit.html'
@@ -24,7 +24,7 @@ class LoginView(CreateView):
 class SignUpView(CreateView):
     template_name = 'registration/signup.html'
     form_class = UserCreationForm
-    success_url = reverse_lazy('author_add')
+    success_url = reverse_lazy('investigator_add')
 
 class LogoutView(View):
     template_name = 'registration/logout.html'
@@ -37,11 +37,11 @@ class LogoutView(View):
     
     success_url = reverse_lazy('hero_list')
 
-class AuthorRegisterView(RedirectView):
-    def get_redirect_url(self, *args, **kwargs):
-        if self.request.user.is_anonymous:
-            return '/author'
-        return f'/author/{get_author(self.request.user).pk}/edit'
+# class InvestigatorRegisterView(RedirectView):
+#     def get_redirect_url(self, *args, **kwargs):
+#         if self.request.user.is_anonymous:
+#             return '/investigator'
+#         return f'/investigator/{get_investigator(self.request.user).pk}/edit'
 
 
 

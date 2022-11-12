@@ -1,0 +1,31 @@
+{% extends 'theme.html' %}
+
+
+{% block title %}
+    Investigators
+{% endblock title %}
+
+{% block content %}
+
+<table class="table table-hover">
+    <tr>
+        <th>Investigator</th>
+        <th>Edit</th>
+    </tr>
+
+    {% for investigator in object_list %}
+
+    <tr>
+        <td><a href="/investigator/{{ investigator.pk }}">{{ investigator.name }}</a></td>
+        <td><a href="/investigator/{{ investigator.pk }}/edit">Edit</a></td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<p>
+    <a href="/investigator/add" class="btn btn-success m-5">Add New Investigator</a>
+</p>
+
+{% endblock content %}

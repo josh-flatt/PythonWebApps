@@ -3,19 +3,20 @@ from django.db import models
 from django.urls import reverse_lazy
 
 
-class Author(models.Model):
+class Investigator(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, editable=False)
+    name = models.CharField(max_length=50)
     bio = models.TextField()
 
     def __str__(self):
         return f'{self.name}'
     
     def get_absolute_url(self):
-        return reverse_lazy('author_detail', args=[str(self.id)])
+        return reverse_lazy('investigator_detail', args=[str(self.id)])
     
     @property
     def articles(self):
-        return Article.objects.filter(author=self)
+        return Article.objects.filter(investigator=self)
 
     @property
     def name(self):
@@ -23,11 +24,11 @@ class Author(models.Model):
 
     @staticmethod
     def get_me(user):
-        return Author.objects.get_or_create(user=user)[0]
+        return Investigator.objects.get_or_create(user=user)[0]
 
 
 class Superhero(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
+    investigator = models.ForeignKey(Investigator, on_delete=models.CASCADE, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     last_updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=100)
@@ -45,7 +46,7 @@ class Superhero(models.Model):
 
 
 class Article(models.Model):
-    author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False, related_name='messages_sent')
+    investigator = models.ForeignKey(Investigator, on_delete=models.CASCADE, editable=False, related_name='messages_sent')
     created_at = models.DateTimeField(auto_now_add=True)
     last_updated_at = models.DateTimeField(auto_now=True)
     superheroes = models.ManyToManyField(Superhero)
@@ -54,7 +55,7 @@ class Article(models.Model):
 
     @property
     def articles(self):
-        return Article.objects.filter(author=self.author)
+        return Article.objects.filter(Investigator=self.investigator)
 
     def __str__(self):
         return f'{self.title}'
