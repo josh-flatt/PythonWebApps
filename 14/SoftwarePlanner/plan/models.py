@@ -8,10 +8,10 @@ class Milestone(models.Model):
     notes = models.TextField()
 
     def __str__(self):
-        return f'Milestone {self.order} - {self.title}'
+        return f"Milestone {self.order} - {self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('milestone_detail', args=[str(self.id)])
+        return reverse_lazy("milestone_detail", args=[str(self.id)])
 
     @property
     def tasks(self):
@@ -25,7 +25,7 @@ class Task(models.Model):
     notes = models.TextField()
 
     def __str__(self):
-        return f'{self.milestone} - {self.title}'
+        return f"{self.milestone} - {self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('task_detail', args=[str(self.id)])
+        return reverse_lazy("task_detail", args=[str(self.id)])

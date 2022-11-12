@@ -7,20 +7,22 @@ import photos.models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('photos', '0001_initial'),
+        ("photos", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='photo',
-            name='author',
+            model_name="photo",
+            name="author",
         ),
         migrations.AlterField(
-            model_name='photo',
-            name='image',
-            field=models.ImageField(blank=True, null=True, upload_to=photos.models.get_upload),
+            model_name="photo",
+            name="image",
+            field=models.ImageField(
+                blank=True, null=True, upload_to=photos.models.get_upload
+            ),
         ),
         migrations.DeleteModel(
-            name='Author',
+            name="Author",
         ),
     ]

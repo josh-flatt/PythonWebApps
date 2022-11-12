@@ -17,4 +17,4 @@ class Superhero(models.Model):
         return self.identity
 
     def get_absolute_url(self):
-        return reverse_lazy('hero_list')
+        return reverse_lazy("hero_list")

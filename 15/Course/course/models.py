@@ -11,14 +11,14 @@ class Student(models.Model):
     server = models.URLField(default="https://digitalocean.com")
 
     def __str__(self):
-        return f'{self.title}'
+        return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('student_detail', args=[str(self.id)])
+        return reverse_lazy("student_detail", args=[str(self.id)])
 
     @property
     def name(self):
-        return self.user.first_name + ' ' + self.user.last_name
+        return self.user.first_name + " " + self.user.last_name
 
     @staticmethod
     def get_me(user):

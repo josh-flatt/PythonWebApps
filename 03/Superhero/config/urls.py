@@ -3,5 +3,5 @@ from django.urls.conf import include
 
 
 urlpatterns = [
-    path('', include('hero.urls')),
+    path("", include("hero.urls")),
 ]

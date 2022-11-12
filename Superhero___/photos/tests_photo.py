@@ -6,7 +6,7 @@ from .models import Author, Photo
 
 
 def user_args():
-    return dict(username='TESTER', email='test@test.us', password='secret')
+    return dict(username="TESTER", email="test@test.us", password="secret")
 
 
 def test_user():
@@ -14,19 +14,19 @@ def test_user():
 
 
 class PhotoDataTest(TestCase):
-
     def setUp(self):
         self.user = test_user()
-        self.photo1 = dict(title='title 1', image="photo1.png")
-        self.photo2 = dict(title='title 2', image="photo2.png")
+        self.photo1 = dict(title="title 1", image="photo1.png")
+        self.photo2 = dict(title="title 2", image="photo2.png")
         # Photo.objects.create(**self.photo1)
 
     def test_add_test(self):
         self.assertEqual(len(Photo.objects.all()), 0)
         Photo.objects.create(**self.photo1)
         x = Photo.objects.get(pk=1)
-        self.assertEqual(x.title, self.photo1['title'])
+        self.assertEqual(x.title, self.photo1["title"])
         self.assertEqual(len(Photo.objects.all()), 1)
+
 
 #     def test_test_edit(self):
 #         Photo.objects.create(**self.photo1)

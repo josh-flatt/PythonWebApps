@@ -9,18 +9,18 @@ class Investigator(models.Model):
     bio = models.TextField()
 
     def __str__(self):
-        return f'{self.name}'
-    
+        return f"{self.name}"
+
     def get_absolute_url(self):
-        return reverse_lazy('investigator_detail', args=[str(self.id)])
-    
+        return reverse_lazy("investigator_detail", args=[str(self.id)])
+
     @property
     def articles(self):
         return Article.objects.filter(investigator=self)
 
     @property
     def name(self):
-        return self.user.first_name + ' ' + self.user.last_name
+        return self.user.first_name + " " + self.user.last_name
 
     @staticmethod
     def get_me(user):
@@ -28,7 +28,9 @@ class Investigator(models.Model):
 
 
 class Superhero(models.Model):
-    investigator = models.ForeignKey(Investigator, on_delete=models.CASCADE, editable=False)
+    investigator = models.ForeignKey(
+        Investigator, on_delete=models.CASCADE, editable=False
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     last_updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=100)
@@ -42,11 +44,16 @@ class Superhero(models.Model):
         return self.identity
 
     def get_absolute_url(self):
-        return reverse_lazy('hero_list')
+        return reverse_lazy("hero_list")
 
 
 class Article(models.Model):
-    investigator = models.ForeignKey(Investigator, on_delete=models.CASCADE, editable=False, related_name='messages_sent')
+    investigator = models.ForeignKey(
+        Investigator,
+        on_delete=models.CASCADE,
+        editable=False,
+        related_name="messages_sent",
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     last_updated_at = models.DateTimeField(auto_now=True)
     superheroes = models.ManyToManyField(Superhero)
@@ -58,7 +65,7 @@ class Article(models.Model):
         return Article.objects.filter(Investigator=self.investigator)
 
     def __str__(self):
-        return f'{self.title}'
+        return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('article_detail', args=[str(self.id)])
+        return reverse_lazy("article_detail", args=[str(self.id)])

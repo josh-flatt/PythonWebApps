@@ -7,13 +7,18 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('messenger', '0002_message_recipient_alter_message_author'),
+        ("messenger", "0002_message_recipient_alter_message_author"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='message',
-            name='recipient',
-            field=models.ForeignKey(default='1', on_delete=django.db.models.deletion.CASCADE, related_name='messages_received', to='messenger.person'),
+            model_name="message",
+            name="recipient",
+            field=models.ForeignKey(
+                default="1",
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="messages_received",
+                to="messenger.person",
+            ),
         ),
     ]

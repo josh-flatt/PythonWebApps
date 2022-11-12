@@ -6,7 +6,7 @@ from .models import Milestone
 
 
 def user_args():
-    return dict(username='TESTER', email='test@test.us', password='secret')
+    return dict(username="TESTER", email="test@test.us", password="secret")
 
 
 def test_user():
@@ -14,11 +14,11 @@ def test_user():
 
 
 class MilestoneDataTest(TestCase):
-
     def setUp(self):
         self.user = test_user()
-        self.person = dict(user=self.user, bio='single tester')
+        self.person = dict(user=self.user, bio="single tester")
         self.milestone1 = dict(user=self.user)
+
     #     Milestone.objects.create(**self.milestone1)
 
     # def test_add_test(self):
@@ -46,15 +46,16 @@ class MilestoneDataTest(TestCase):
 
 
 class MilestoneViewsTest(TestCase):
-
     def login(self):
-        response = self.client.login(username=self.user.username,  password=self.user_args['password'])
+        response = self.client.login(
+            username=self.user.username, password=self.user_args["password"]
+        )
         self.assertEqual(response, True)
 
     def setUp(self):
         self.user, self.user_args = create_test_user()
-        self.milestone1 = dict(title='Doc Title 1', body='Doc Body 1')
-        self.milestone2 = dict(title='Doc Title 2', body='Doc Body 2')
+        self.milestone1 = dict(title="Doc Title 1", body="Doc Body 1")
+        self.milestone2 = dict(title="Doc Title 2", body="Doc Body 2")
 
     # def test_home(self):
     #     response = self.client.get('/')

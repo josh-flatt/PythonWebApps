@@ -7,14 +7,19 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('photos', '0002_remove_photo_author_alter_photo_image_delete_author'),
-        ('hero', '0003_remove_superhero_image'),
+        ("photos", "0002_remove_photo_author_alter_photo_image_delete_author"),
+        ("hero", "0003_remove_superhero_image"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='superhero',
-            name='image',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='photos.photo'),
+            model_name="superhero",
+            name="image",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="photos.photo",
+            ),
         ),
     ]

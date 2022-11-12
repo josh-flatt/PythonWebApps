@@ -8,11 +8,11 @@ from django.views.generic import CreateView, UpdateView
 class UserUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "registration/edit.html"
     model = User
-    fields = ['first_name', 'last_name', 'username', 'email']
-    success_url = reverse_lazy('home')
+    fields = ["first_name", "last_name", "username", "email"]
+    success_url = reverse_lazy("home")
 
 
 class UserAddView(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/add.html'
+    success_url = reverse_lazy("login")
+    template_name = "registration/add.html"

@@ -8,22 +8,22 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('hero', '0002_article_delete_message'),
+        ("hero", "0002_article_delete_message"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='Author',
-            new_name='Investigator',
+            old_name="Author",
+            new_name="Investigator",
         ),
         migrations.RenameField(
-            model_name='article',
-            old_name='author',
-            new_name='investigator',
+            model_name="article",
+            old_name="author",
+            new_name="investigator",
         ),
         migrations.RenameField(
-            model_name='superhero',
-            old_name='author',
-            new_name='investigator',
+            model_name="superhero",
+            old_name="author",
+            new_name="investigator",
         ),
     ]

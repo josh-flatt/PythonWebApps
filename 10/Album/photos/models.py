@@ -9,14 +9,14 @@ class Author(models.Model):
     bio = models.TextField()
 
     def __str__(self):
-        return f'{self.user.username}'
+        return f"{self.user.username}"
 
     def get_absolute_url(self):
-        return reverse_lazy('author_detail', args=[str(self.id)])
+        return reverse_lazy("author_detail", args=[str(self.id)])
 
     @property
     def name(self):
-        return self.user.first_name + ' ' + self.user.last_name
+        return self.user.first_name + " " + self.user.last_name
 
     @property
     def photos(self):
@@ -30,17 +30,17 @@ class Author(models.Model):
 def get_upload(instance, filename):
     # if instance.folder:
     #     return f'images/{instance.folder}/{filename}'
-    return f'images/{filename}'
+    return f"images/{filename}"
 
 
-class Photo (models.Model):
+class Photo(models.Model):
 
     author = models.ForeignKey(Author, on_delete=models.CASCADE, editable=False)
     title = models.CharField(max_length=100)
     image = models.ImageField(null=True, blank=True, upload_to=get_upload)
 
     def __str__(self):
-        return f'{self.pk} - {self.title}'
+        return f"{self.pk} - {self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('photo_detail', args=[str(self.id)])
+        return reverse_lazy("photo_detail", args=[str(self.id)])

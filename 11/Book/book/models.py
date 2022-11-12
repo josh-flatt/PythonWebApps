@@ -8,10 +8,10 @@ class Author(models.Model):
     title = models.CharField(max_length=100)
 
     def __str__(self):
-        return f'{self.title}'
+        return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('author_detail', args=[str(self.id)])
+        return reverse_lazy("author_detail", args=[str(self.id)])
 
     @property
     def books(self):
@@ -19,14 +19,14 @@ class Author(models.Model):
 
     @property
     def name(self):
-        return self.user.first_name + ' ' + self.user.last_name
+        return self.user.first_name + " " + self.user.last_name
 
     @staticmethod
     def get_me(user):
         author = Author.objects.get_or_create(user=user)[0]
-        if author.name == ' ':
-            author.user.first_name = 'Unknown'
-            author.user.last_name = 'User'
+        if author.name == " ":
+            author.user.first_name = "Unknown"
+            author.user.last_name = "User"
             author.user.save()
         return author
 
@@ -37,10 +37,10 @@ class Book(models.Model):
     notes = models.TextField()
 
     def __str__(self):
-        return f'{self.title}'
+        return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('book_detail', args=[str(self.id)])
+        return reverse_lazy("book_detail", args=[str(self.id)])
 
     @property
     def chapters(self):
@@ -53,7 +53,7 @@ class Chapter(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return f'{self.title}'
+        return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('chapter_detail', args=[str(self.id)])
+        return reverse_lazy("chapter_detail", args=[str(self.id)])

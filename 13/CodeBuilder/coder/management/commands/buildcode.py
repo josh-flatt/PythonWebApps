@@ -4,6 +4,5 @@ from coder.coder import build_code
 
 
 class Command(BaseCommand):
-
     def handle(self, *args, **options):
         build_code()

@@ -4,6 +4,5 @@ from plan.views_plan import plan
 
 
 class Command(BaseCommand):
-
     def handle(self, *args, **options):
         plan()

@@ -6,7 +6,6 @@ from hero.models import Superhero
 
 
 class Command(BaseCommand):
-
     def handle(self, *args, **options):
         save_data()
 
@@ -19,5 +18,5 @@ def save_data():
 
     data = [b for b in Superhero.objects.all().values()]
 
-    with open('hero_objects.json', "w") as f:
+    with open("hero_objects.json", "w") as f:
         dump(data, f, indent=4)

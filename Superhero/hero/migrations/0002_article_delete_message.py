@@ -7,23 +7,39 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('hero', '0001_initial'),
+        ("hero", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Article',
+            name="Article",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('last_updated_at', models.DateTimeField(auto_now=True)),
-                ('title', models.CharField(max_length=100)),
-                ('text', models.TextField()),
-                ('author', models.ForeignKey(editable=False, on_delete=django.db.models.deletion.CASCADE, related_name='messages_sent', to='hero.author')),
-                ('superheroes', models.ManyToManyField(to='hero.superhero')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("last_updated_at", models.DateTimeField(auto_now=True)),
+                ("title", models.CharField(max_length=100)),
+                ("text", models.TextField()),
+                (
+                    "author",
+                    models.ForeignKey(
+                        editable=False,
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="messages_sent",
+                        to="hero.author",
+                    ),
+                ),
+                ("superheroes", models.ManyToManyField(to="hero.superhero")),
             ],
         ),
         migrations.DeleteModel(
-            name='Message',
+            name="Message",
         ),
     ]

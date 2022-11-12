@@ -8,10 +8,10 @@ class Person(models.Model):
     bio = models.TextField()
 
     def __str__(self):
-        return f'{self.name}'
+        return f"{self.name}"
 
     def get_absolute_url(self):
-        return reverse_lazy('person_detail', args=[str(self.id)])
+        return reverse_lazy("person_detail", args=[str(self.id)])
 
     @property
     def messages(self):
@@ -19,7 +19,7 @@ class Person(models.Model):
 
     @property
     def name(self):
-        return self.user.first_name + ' ' + self.user.last_name
+        return self.user.first_name + " " + self.user.last_name
 
     @staticmethod
     def get_me(user):
@@ -27,10 +27,12 @@ class Person(models.Model):
 
 
 class Message(models.Model):
-    author = models.ForeignKey(Person, on_delete=models.CASCADE, editable=False,
-                               related_name='messages_sent')
-    recipient = models.ForeignKey(Person, on_delete=models.CASCADE,
-                                  related_name='messages_received', default='1')
+    author = models.ForeignKey(
+        Person, on_delete=models.CASCADE, editable=False, related_name="messages_sent"
+    )
+    recipient = models.ForeignKey(
+        Person, on_delete=models.CASCADE, related_name="messages_received", default="1"
+    )
     title = models.CharField(max_length=100)
     text = models.TextField()
 
@@ -39,7 +41,7 @@ class Message(models.Model):
         return Message.objects.filter(author=self.author)
 
     def __str__(self):
-        return f'{self.title}'
+        return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('message_detail', args=[str(self.id)])
+        return reverse_lazy("message_detail", args=[str(self.id)])

@@ -7,4 +7,4 @@ class Note(models.Model):
     body = models.TextField()
 
     def __str__(self):
-        return f'{self.pk}. {self.title} - {self.author}'
+        return f"{self.pk}. {self.title} - {self.author}"

@@ -9,10 +9,10 @@ class Book(models.Model):
     notes = models.TextField()
 
     def __str__(self):
-        return f'{self.title}'
+        return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse_lazy('book_detail', args=[str(self.id)])
+        return reverse_lazy("book_detail", args=[str(self.id)])
 
     # @property
     # def dependents(self):
@@ -25,4 +25,3 @@ class Book(models.Model):
     # @staticmethod
     # def get_me(user):
     #     return Person.objects.get_or_create(user=user)[0]
-

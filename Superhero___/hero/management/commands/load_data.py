@@ -15,7 +15,7 @@ def load_data():
     Superhero.objects.all().delete()
 
     # Read the JSON file
-    path = Path('hero_objects.json')
+    path = Path("hero_objects.json")
     if path.exists():
         objects = loads(path.read_text())
 

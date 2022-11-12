@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('course', '0001_initial'),
+        ("course", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='student',
-            name='github',
-            field=models.URLField(default='https://github.com'),
+            model_name="student",
+            name="github",
+            field=models.URLField(default="https://github.com"),
         ),
         migrations.AddField(
-            model_name='student',
-            name='server',
-            field=models.URLField(default='https://digitalocean.com'),
+            model_name="student",
+            name="server",
+            field=models.URLField(default="https://digitalocean.com"),
         ),
     ]

@@ -19,11 +19,9 @@ from django.urls import path
 from note.views import NoteDetailView, NoteListView
 
 urlpatterns = [
-
     # Admin
-    path('admin/', admin.site.urls),
-
+    path("admin/", admin.site.urls),
     # Note
-    path('', NoteListView.as_view()),
-    path('<int:pk>', NoteDetailView.as_view()),
+    path("", NoteListView.as_view()),
+    path("<int:pk>", NoteDetailView.as_view()),
 ]
