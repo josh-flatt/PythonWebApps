@@ -14,10 +14,9 @@
 
 <body class=" bg-dark text-light">
 
-    <header class="bg-primary text-center p-3 mb-0">
-        <h1 class="display-2">Hero Database</h1>
-        <h2 class="display-3">Data Views Application</h2>
-    </header>
+    {% block header %}
+    {% include '_header.html' %}
+    {% endblock header %}
 
     {% block navbar %}
     {% include '_navbar.html' %}
@@ -36,6 +35,10 @@
 
         </div>
     </div>
+
+    {% block footer %}
+    {% include '_footer.html' %}
+    {% endblock footer %}
     
 </body>
 
