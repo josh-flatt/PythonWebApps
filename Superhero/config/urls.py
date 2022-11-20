@@ -20,15 +20,43 @@ urlpatterns = [
     path("investigator", InvestigatorListView.as_view(), name="investigator_list"),
     path("investigator/", InvestigatorListView.as_view(), name="investigator_list"),
     path("investigator/add", InvestigatorCreateView.as_view(), name="investigator_add"),
-    path("investigator/add/", InvestigatorCreateView.as_view(), name="investigator_add"),
+    path(
+        "investigator/add/", InvestigatorCreateView.as_view(), name="investigator_add"
+    ),
     path("investigator/home", InvestigatorHomeView.as_view(), name="investigator_home"),
-    path("investigator/home/", InvestigatorHomeView.as_view(), name="investigator_home"),
-    path("investigator/<int:pk>", InvestigatorDetailView.as_view(), name="investigator_detail"),
-    path( "investigator/<int:pk>/", InvestigatorDetailView.as_view(), name="investigator_detail"),
-    path("investigator/<int:pk>/edit", InvestigatorUpdateView.as_view(), name="investigator_update"),
-    path("investigator/<int:pk>/edit/", InvestigatorUpdateView.as_view(), name="investigator_update",),
-    path( "investigator/<int:pk>/delete", InvestigatorDeleteView.as_view(), name="investigator_delete"),
-    path( "investigator/<int:pk>/delete/", InvestigatorDeleteView.as_view(), name="investigator_delete"),
+    path(
+        "investigator/home/", InvestigatorHomeView.as_view(), name="investigator_home"
+    ),
+    path(
+        "investigator/<int:pk>",
+        InvestigatorDetailView.as_view(),
+        name="investigator_detail",
+    ),
+    path(
+        "investigator/<int:pk>/",
+        InvestigatorDetailView.as_view(),
+        name="investigator_detail",
+    ),
+    path(
+        "investigator/<int:pk>/edit",
+        InvestigatorUpdateView.as_view(),
+        name="investigator_update",
+    ),
+    path(
+        "investigator/<int:pk>/edit/",
+        InvestigatorUpdateView.as_view(),
+        name="investigator_update",
+    ),
+    path(
+        "investigator/<int:pk>/delete",
+        InvestigatorDeleteView.as_view(),
+        name="investigator_delete",
+    ),
+    path(
+        "investigator/<int:pk>/delete/",
+        InvestigatorDeleteView.as_view(),
+        name="investigator_delete",
+    ),
     # Hero
     path("", RedirectView.as_view(url="hero")),
     path("hero", HeroListView.as_view(), name="hero_list"),
@@ -51,5 +79,7 @@ urlpatterns = [
     path("article/<int:pk>/edit", ArticleUpdateView.as_view(), name="article_update"),
     path("article/<int:pk>/edit/", ArticleUpdateView.as_view(), name="article_update"),
     path("article/<int:pk>/delete", ArticleDeleteView.as_view(), name="article_delete"),
-    path(  "article/<int:pk>/delete/", ArticleDeleteView.as_view(), name="article_delete"),
+    path(
+        "article/<int:pk>/delete/", ArticleDeleteView.as_view(), name="article_delete"
+    ),
 ]

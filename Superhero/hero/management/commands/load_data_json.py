@@ -14,10 +14,10 @@ def load_data_json():
     Superhero.objects.all().delete()
 
     # Read the JSON file
-    path = Path('hero_objects.json')
+    path = Path("hero_objects.json")
     if path.exists:
         objects = loads(path.read_text())
-    
+
     # Create new objects
     for o in objects:
         Superhero.objects.get_or_create(**o)
