@@ -9,6 +9,9 @@ from hero.views_articles import *
 from hero.views_photos import *
 
 urlpatterns = [
+    # Messages
+    path("", include("message.urls_message")),
+    
     # Photo
     path("photo/", PhotoListView.as_view(), name="photo_list"),
     path("photo/<int:pk>", PhotoDetailView.as_view(), name="photo_detail"),

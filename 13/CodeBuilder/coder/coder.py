@@ -13,8 +13,17 @@ def build_code():
     # generate_messenger()
     # generate_blog()
     # generate_book()
-    generate_hero()
+    # generate_hero()
+    generate_notes_module()
 
+def generate_notes_module():
+    project_path = Path("C:/Users/joshm/Documents/GitHub/PythonWebApps")
+    project_name = "Superhero"
+    project_app = "message"
+    class_name = "Message"
+    object_name = "message"
+    project_path = create_new_project(project_path, project_name)
+    generate_data_type(project_path, project_app, class_name, object_name)
 
 def generate_hero():
     project_path = Path("/Users/seaman/Github/PythonWebApps/")
