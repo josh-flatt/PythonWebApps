@@ -14,7 +14,7 @@ class Photo (models.Model):
         return f"{self.pk} - {self.title}"
     
     def get_absolute_url(self):
-        return reverse_lazy("photo_detail", args=[str(self.pk)])
+        return reverse_lazy("photo_detail", args=[str(self.id)])
     
 
 class Investigator(models.Model):
