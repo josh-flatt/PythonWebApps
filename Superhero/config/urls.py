@@ -9,8 +9,14 @@ from hero.views_articles import *
 from hero.views_photos import *
 
 urlpatterns = [
-    # Photos
-    path("photo/add", PhotoCreateView.as_view()),
+    # Photo
+    path("photo/", PhotoListView.as_view(), name="photo_list"),
+    path("photo/<int:pk>", PhotoDetailView.as_view(), name="photo_detail"),
+    path("photo/add", PhotoCreateView.as_view(), name="photo_add"),
+    path("photo/<int:pk>/", PhotoUpdateView.as_view(), name="photo_edit"),
+    path("photo/<int:pk>/delete", PhotoDeleteView.as_view(), name="photo_delete"),
+    # Photo Display
+    path("photo/carousel", PhotoCarouselView.as_view()),
     
     # Accounts
     path("accounts/", include("django.contrib.auth.urls")),

@@ -12,16 +12,20 @@ Superheroes
 
 
 
-        {% for hero in object_list %}
-        <div class="card" style="width: 18rem;">
-            <img src="/static/images/{{ hero.image }}" class="card-img-top" alt="{{ hero.name }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ hero.identity }}</h5>
-              <p class="card-text">{{ hero.description }}</p>
-              <a href="/hero/{{ hero.pk }}" class="btn btn-primary">See more</a>
-            </div>
-        </div>
-        {% endfor %}
+{% for hero in object_list %}
+<div class="card" style="width: 18rem;">
+    {% if hero.image %}
+    <img src="/media/{{ hero.image.image }}" alt="{{ hero.image.title }}" width="150">
+    {% else %}
+    No image available
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ hero.identity }}</h5>
+      <p class="card-text">{{ hero.description }}</p>
+      <a href="/hero/{{ hero.pk }}" class="btn btn-primary">See more</a>
+    </div>
+</div>
+{% endfor %}
 
 
 

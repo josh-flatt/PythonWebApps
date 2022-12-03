@@ -1,7 +1,7 @@
 {% extends 'theme.html' %}
 
 {% block title %}
-Add New Photo
+Edit Photo
 {% endblock title %}
 
 
@@ -9,7 +9,7 @@ Add New Photo
 
 <div class="container m-5">
 
-    <h1 class="text-primary">Add New Message</h1>
+    <h1 class="text-primary">Edit Photo</h1>
 
     {% load crispy_forms_tags %}
 
@@ -22,7 +22,6 @@ Add New Photo
         <a class="btn btn-primary m-5" href="/photo/{{ object.pk }}/delete">Delete Image</a>
 
     </form>
-
 
 </div>
 

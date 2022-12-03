@@ -9,6 +9,13 @@ def get_upload(instance, filename):
 class Photo (models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(null=True, blank=True, upload_to=get_upload)
+    
+    def __str__(self):
+        return f"{self.pk} - {self.title}"
+    
+    def get_absolute_url(self):
+        return reverse_lazy("photo_detail", args=[str(self.pk)])
+    
 
 class Investigator(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, editable=False)
@@ -43,8 +50,7 @@ class Superhero(models.Model):
     name = models.CharField(max_length=100)
     identity = models.CharField(max_length=100)
     description = models.TextField()
-    # image = models.CharField(max_length=100)
-    image = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True, blank=True)
+    image = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True)
     strengths = models.CharField(max_length=100)
     weaknesses = models.CharField(max_length=100)
 
