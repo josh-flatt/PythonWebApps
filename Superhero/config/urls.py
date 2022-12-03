@@ -1,12 +1,17 @@
 from django.views.generic import RedirectView
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
 from hero.views_hero import *
 from hero.views_accounts import *
 from hero.views_investigator import *
 from hero.views_articles import *
+from hero.views_photos import *
 
 urlpatterns = [
+    # Photos
+    path("photo/add", PhotoCreateView.as_view()),
+    
     # Accounts
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/<int:pk>", UserUpdateView.as_view(), name="account_edit"),
@@ -82,4 +87,4 @@ urlpatterns = [
     path(
         "article/<int:pk>/delete/", ArticleDeleteView.as_view(), name="article_delete"
     ),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
