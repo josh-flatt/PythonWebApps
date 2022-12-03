@@ -49,8 +49,8 @@ class Superhero(models.Model):
     last_updated_at = models.DateTimeField(auto_now=True)
     name = models.CharField(max_length=100)
     identity = models.CharField(max_length=100)
-    description = models.TextField()
     image = models.ForeignKey(Photo, on_delete=models.CASCADE, null=True)
+    description = models.TextField()
     strengths = models.CharField(max_length=100)
     weaknesses = models.CharField(max_length=100)
 
