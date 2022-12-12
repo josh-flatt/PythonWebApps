@@ -47,6 +47,12 @@ services:
     scope: RUN_AND_BUILD_TIME
     type: SECRET
     value: EV[1:FbM/rZflv9hGyyte/rf+GfhblPaa/F1k:0m+9Erh3PzmKkQcF2b8BbPal3q8xQwf1OezWAYaPrcU=]
+  - key: DATABASE_URL
+    scope: RUN_TIME
+    value: ${db.DATABASE_URL}
+  - key: DATABASE_URL
+    scope: RUN_TIME
+    value: ${db.DATABASE_URL}
   github:
     branch: main
     deploy_on_push: true
